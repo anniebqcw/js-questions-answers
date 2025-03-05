@@ -1,0 +1,29 @@
+---
+title: What are the differences between JS variables declared with the keywords let, const and var?
+---
+
+## Scope:
+
+    * `var`: scoped to the function they are created in, or if outside a function, globally scoped.
+    * `let` and `const`: block scoped (to the function, if/else block etc).
+
+## Initialisation:
+
+    * `const`: must be initialised with a value
+    * `let` and `var`: can be initialised without a value
+
+## Redeclaration:
+
+    * `var`: can be redeclared
+    * `let` and `const`: cannot be redeclared (will throw an error)
+
+## Reassignment:
+
+    * `let` and `var`: can be reassigned
+    * `const`: cannot be reassigned
+
+## Accessing before declaration:
+
+    * `let`, `var` and `const` are all hoisted
+    * Accessing `let` or `const` variables before their declaration will throw a ReferenceError
+    * `var` variables are auto-initialised with undefined when they are hoisted
