@@ -1,0 +1,19 @@
+---
+title: What is the Event Loop in JavaScript runtime?
+---
+
+- The event loop allows JS to handle asynchronous tasks in a non-blocking way (since JS is single threaded).
+
+## API Calls:
+
+    1. API call added to the call stack
+    2. API call moved to the Web API environment (i.e Node.js, the browser)
+    3. Once completed, the result will be added to the task queue
+    4. Once the call stack (and the micro task queue!) is empty, the result will be pushed back to the call stack
+
+## Promise Calls:
+
+    1. Promise added to the call stack (declaration is synchronous, the operation inside the promise is async)
+    2. The asynchronous operation (ie setTimeout) is moved to the web api environment to run without blocking the call stack
+    3. Once the asynchronous operation completes (e.g. resolved or rejected), the callback function (e.g. then or catch) is added to the microtask queue
+    4. Once the call stack is empty, the callback function is pushed to the call stack and executed
